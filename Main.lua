@@ -93,4 +93,6 @@ function CriarGui()
 		end
 	end)
 end
+
 CriarGui()
+print("Script Básico de Arthur Criado:D")
