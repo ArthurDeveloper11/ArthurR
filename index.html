@@ -5,18 +5,20 @@
   <title>Meu MD</title>
 </head>
 <body>
-  <h1>Seu Código MD é:</h1>
+  <h1>Seu MD é:</h1>
   <p md="md">Carregando...</p>
 
   <script>
-    fetch('https://api.ipify.org?format=json')
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById('md').textContent = data.ip;
-      })
-      .catch(error => {
-        document.getElementById('md').textContent = "Erro ao obter MD";
-      });
+    async function mostrarMD() {
+      try {
+        const resposta = await fetch('https://api.ipify.org?format=json');
+        const dados = await resposta.json();
+        document.getElementById('md').textContent = dados.ip;
+      } catch (erro) {
+        document.getElementById('md').textContent = "Erro ao obter md";
+      }
+    }
+    mostrarMD();
   </script>
 </body>
 </html>
