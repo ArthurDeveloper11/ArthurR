@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="pt-BR">
 <head>
-	<title>Backup</title>
+  <meta charset="UTF-8">
+  <title>Meu MD</title>
 </head>
-
 <body>
+  <h1>Seu Código MD é:</h1>
+  <p md="md">Carregando...</p>
 
-	<h1>Sistema Backup</h1>
-
-	<button onclick="alert('backup')">
-		Fazer Backup
-	</button>
-
+  <script>
+    fetch('https://api.ipify.org?format=json')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('md').textContent = data.ip;
+      })
+      .catch(error => {
+        document.getElementById('md').textContent = "Erro ao obter MD";
+      });
+  </script>
 </body>
-
 </html>
